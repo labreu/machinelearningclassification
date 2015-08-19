@@ -1,17 +1,20 @@
-import csv
-import numpy
-import scipy
+#Differential equation
+
+
+import numpy as np
+from scipy import integrate
 import matplotlib.pyplot as plt
-from sklearn import preprocessing
 
-from sklearn import neighbors
-from sklearn.cross_validation import train_test_split
-from sklearn import metrics
-import knnplots
+def deriv(y,t):
+    yprime = np.array([3.5*y[0]])
+    return yprime
 
-from sklearn.naive_bayes import GaussianNB
+start=0
+end=1
+numsteps=1000
+time=np.linspace(start,end,numsteps)
+y0=np.array([10])
 
-from sklearn import cross_validation
-from sklearn.grid_search import GridSearchCV
-
-print "Good to go, all packages installed ok, ready to code."
+y=integrate.odeint(deriv,y0,time)
+plt.plot(time,y[:])
+plt.show()
