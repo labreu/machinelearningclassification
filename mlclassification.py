@@ -18,3 +18,5 @@ y0=np.array([10])
 y=integrate.odeint(deriv,y0,time)
 plt.plot(time,y[:])
 plt.show()
+
+
